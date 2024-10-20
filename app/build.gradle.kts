@@ -50,6 +50,10 @@ android {
 }
 
 dependencies {
+    //Sirven para la navegación
+    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.0")
+    implementation ("androidx.navigation:navigation-ui-ktx:2.7.0")
+    //Sirve para la fragmentación
     implementation("androidx.fragment:fragment-ktx:1.5.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
