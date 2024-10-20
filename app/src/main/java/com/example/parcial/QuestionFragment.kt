@@ -23,6 +23,25 @@ class QuestionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-
+        val view = inflater.inflate(R.layout.fragment_question, container, false)
+        val questionText = view.findViewById<TextView>(R.id.questionText)
+        val questionImageView = view.findViewById<ImageView>(R.id.questionImageView)
+        val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+        val timerText = view.findViewById<TextView>(R.id.timerText)
+        questions = loadQuestions()
+        showQuestion(questionText, questionImageView)
+        startTimer(timerText)
+        view.findViewById<Button>(R.id.option1Button).setOnClickListener {
+            handleAnswer(it as Button, questionText, progressBar)
+        }
+        view.findViewById<Button>(R.id.option2Button).setOnClickListener {
+            handleAnswer(it as Button, questionText, progressBar)
+        }
+        view.findViewById<Button>(R.id.option3Button).setOnClickListener {
+            handleAnswer(it as Button, questionText, progressBar)
+        }
+        view.findViewById<Button>(R.id.option4Button).setOnClickListener {
+            handleAnswer(it as Button, questionText, progressBar)
+        }
     }
 }

@@ -4,6 +4,6 @@
     android:id="@+id/nav_graph.xml">
     <action
         android:id="@+id/action_answerFragment_to_questionFragment"
-        app:destination="@id/fragment_question" />
+        app:destination="@id/action_answerFragment_to_questionFragment" />
 
 </navigation>
