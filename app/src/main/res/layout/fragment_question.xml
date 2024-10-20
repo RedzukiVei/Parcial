@@ -2,6 +2,85 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/Fondo3">
+    <TextView
+        android:id="@+id/questionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pregunta #1"
+        android:textSize="24sp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"/>
+
+    <ImageView
+        android:id="@+id/questionImage"
+        android:layout_width="247dp"
+        android:layout_height="271dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/cg1"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Cómo se llama esta marravilla del mundo?"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"/>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:layout_marginTop="16dp">
+        <Button
+            android:id="@+id/option1Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="Opción 1"
+            android:layout_marginBottom="8dp"/>
+
+        <Button
+            android:id="@+id/option2Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="Opción 2" />
+
+        <Button
+            android:id="@+id/option3Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="Opción 3" />
+
+        <Button
+            android:id="@+id/option4Button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:text="Opción 4" />
+    </GridLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:outlineSpotShadowColor="@color/white"/>
+
+    <TextView
+        android:id="@+id/progressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿?"
+        android:textColor="@color/white"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
