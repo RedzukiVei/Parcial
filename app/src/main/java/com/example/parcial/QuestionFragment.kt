@@ -79,14 +79,15 @@ class QuestionFragment : Fragment() {
         }
 
         val currentQuestion = questions[currentQuestionIndex]
+        val shuffledOptions = currentQuestion.options.shuffled()
         questionText.text = currentQuestion.text
         questionImageView.setImageResource(currentQuestion.imageResId)
         questionNumberText.text = "Pregunta ${currentQuestionIndex + 1}"
 
-        option1Button.text = currentQuestion.options[0]
-        option2Button.text = currentQuestion.options[1]
-        option3Button.text = currentQuestion.options[2]
-        option4Button.text = currentQuestion.options[3]
+        option1Button.text = shuffledOptions[0]
+        option2Button.text = shuffledOptions[1]
+        option3Button.text = shuffledOptions[2]
+        option4Button.text = shuffledOptions[3]
 
         startTimer(timerText)
     }
