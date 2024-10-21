@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.os.Handler
 import android.widget.ImageView
 import android.os.Looper
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -18,6 +19,7 @@ class AnswerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_answer, container, false)
+
         val resultText = view.findViewById<TextView>(R.id.resultText)
         val feedbackText = view.findViewById<TextView>(R.id.feedbackText)
         val answerImageView = view.findViewById<ImageView>(R.id.answerImage)
@@ -33,14 +35,11 @@ class AnswerFragment : Fragment() {
         feedbackText.text = feedback
         answerImageView.setImageResource(answerImageResId)
 
-        // Espera de 5 segundos antes de proceder
         Handler(Looper.getMainLooper()).postDelayed({
             if (isAdded) {
                 if (hasMoreQuestions) {
-                    // Si hay más preguntas, navegamos de vuelta a QuestionFragment
                     findNavController().navigate(R.id.action_answerFragment_to_questionFragment)
                 } else {
-                    // Si no hay más preguntas, navegamos a ResultFragment
                     findNavController().navigate(R.id.action_answerFragment_to_resultFragment)
                 }
             }
@@ -49,5 +48,6 @@ class AnswerFragment : Fragment() {
         return view
     }
 }
+
 
 

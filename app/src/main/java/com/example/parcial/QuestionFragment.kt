@@ -18,7 +18,7 @@ class QuestionFragment : Fragment() {
     private lateinit var questions: List<Question>
     private var currentQuestionIndex = 0
     private var correctAnswers = 0
-    private val maxQuestions = 10
+    private var totalQuestions = 10 // Limitar a 10 preguntas
     private var timer: CountDownTimer? = null
 
     private lateinit var option1Button: Button
@@ -29,17 +29,13 @@ class QuestionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-
-        // Infla el layout y asigna la vista inflada a una variable
         val view = inflater.inflate(R.layout.fragment_question, container, false)
 
-        // Inicializa los botones con sus referencias del layout
         option1Button = view.findViewById(R.id.option1Button)
         option2Button = view.findViewById(R.id.option2Button)
         option3Button = view.findViewById(R.id.option3Button)
         option4Button = view.findViewById(R.id.option4Button)
 
-        // Asocia los elementos del layout usando la vista inflada 'view'
         val questionText = view.findViewById<TextView>(R.id.questionText)
         val questionImageView = view.findViewById<ImageView>(R.id.questionImageView)
         val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
@@ -49,8 +45,7 @@ class QuestionFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.title = "Zona de Preguntas"
 
-
-        // Cargar preguntas y mostrar la primera
+        // Cargar 10 preguntas aleatorias y únicas
         questions = loadQuestions()
 
         // Mostrar la primera pregunta
@@ -73,86 +68,67 @@ class QuestionFragment : Fragment() {
         return view
     }
 
-    private fun showQuestion(questionText: TextView, questionImageView: ImageView, timerText: TextView, questionNumberText: TextView) {
-        // Validar que el índice está dentro de los límites de la lista
-        if (currentQuestionIndex >= questions.size) {
 
-            findNavController().navigate(R.id.action_questionFragment_to_answerFragment)
+    private fun showQuestion(
+        questionText: TextView, questionImageView: ImageView, timerText: TextView, questionNumberText: TextView
+    ) {
+        if (currentQuestionIndex >= totalQuestions) {
+            // Si llegamos al límite de preguntas, navegar a ResultFragment
+            findNavController().navigate(R.id.action_answerFragment_to_resultFragment)
             return
         }
 
         val currentQuestion = questions[currentQuestionIndex]
         questionText.text = currentQuestion.text
         questionImageView.setImageResource(currentQuestion.imageResId)
-
         questionNumberText.text = "Pregunta ${currentQuestionIndex + 1}"
 
-        // Asignar opciones a los botones
         option1Button.text = currentQuestion.options[0]
         option2Button.text = currentQuestion.options[1]
         option3Button.text = currentQuestion.options[2]
         option4Button.text = currentQuestion.options[3]
 
-        // Iniciar el temporizador de 15 segundos
         startTimer(timerText)
     }
 
     private fun startTimer(timerText: TextView) {
-        // Cancelar cualquier temporizador anterior
         timer?.cancel()
-
-        // Crear un nuevo temporizador de 15 segundos
         timer = object : CountDownTimer(15000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                // Actualiza el texto del temporizador cada segundo
                 timerText.text = "Tiempo: ${millisUntilFinished / 1000}s"
             }
 
             override fun onFinish() {
-                // Cuando el temporizador se acaba, procesar como si fuera una respuesta vacía
                 handleAnswer("", questionText = TextView(context), progressBar = ProgressBar(context), progressText = TextView(context), timerText)
             }
         }.start()
     }
 
     private fun handleAnswer(
-        selectedAnswer: String,
-        questionText: TextView,
-        progressBar: ProgressBar,
-        progressText: TextView,
-        timerText: TextView
+        selectedAnswer: String, questionText: TextView, progressBar: ProgressBar, progressText: TextView, timerText: TextView
     ) {
         val currentQuestion = questions[currentQuestionIndex]
         val isCorrect = currentQuestion.correctAnswer == selectedAnswer
 
-        // Cancela el temporizador cuando se selecciona una respuesta
         timer?.cancel()
 
-        // Actualiza la barra de progreso
-        progressBar.progress = (currentQuestionIndex + 1) * (100 / maxQuestions)
-        progressText.text = "Progreso: ${currentQuestionIndex + 1} de $maxQuestions"
+        progressBar.progress = (currentQuestionIndex + 1) * (100 / totalQuestions)
+        progressText.text = "Progreso: ${currentQuestionIndex + 1} de $totalQuestions"
 
-        // Crear un Bundle para enviar al AnswerFragment con los datos de la respuesta
         val bundle = Bundle().apply {
             putBoolean("isCorrect", isCorrect)
             putString("feedback", currentQuestion.feedback)
-            putInt("answerImageResId", currentQuestion.imageAnsId) // Imagen de la respuesta
-            val hasMoreQuestions = currentQuestionIndex + 1 < maxQuestions
-            putBoolean("hasMoreQuestions", hasMoreQuestions)
+            putInt("answerImageResId", currentQuestion.imageAnsId)
+            putBoolean("hasMoreQuestions", currentQuestionIndex + 1 < totalQuestions)
         }
 
-        // Solo navega al AnswerFragment si actualmente estamos en el QuestionFragment
-        if (findNavController().currentDestination?.id == R.id.questionFragment) {
-            findNavController().navigate(R.id.action_questionFragment_to_answerFragment, bundle)
-        }
-
-        // Avanzar a la siguiente pregunta o finalizar el juego
+        findNavController().navigate(R.id.action_questionFragment_to_answerFragment, bundle)
         currentQuestionIndex++
     }
 
     private fun loadQuestions(): List<Question> {
         // Aquí cargas las preguntas de tu lista
-        return listOf(
+        val allQuestions = listOf(
             // Preguntas Faciles
             Question(
                 text = "¿Cuál es el personaje principal de la serie de videojuegos 'The Legend of Zelda'?",
@@ -319,5 +295,6 @@ class QuestionFragment : Fragment() {
                 imageAnsId = R.drawable.pa20
             )
         )
+        return allQuestions.shuffled().take(10)
     }
 }

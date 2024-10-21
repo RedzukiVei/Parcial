@@ -18,7 +18,6 @@ class ResultFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_result, container, false)
 
         val resultText = view.findViewById<TextView>(R.id.resultText)
-        val resultImage = view.findViewById<ProgressBar>(R.id.resultImage)
         val resultProgressBar = view.findViewById<ProgressBar>(R.id.resultProgressBar)
         val resultPercentage = view.findViewById<TextView>(R.id.resultPercentage)
         val wrongQuestions = view.findViewById<TextView>(R.id.wrongQuestions)
@@ -28,14 +27,11 @@ class ResultFragment : Fragment() {
 
         (activity as AppCompatActivity).supportActionBar?.title = "Resultados Finales"
 
-
-        // Obtener los argumentos pasados (número de preguntas correctas, incorrectas, etc.)
         val totalCorrect = arguments?.getInt("correctAnswers") ?: 0
-        val totalQuestions = arguments?.getInt("totalQuestions") ?: 10
+        val totalQuestions = 10
         val totalWrong = totalQuestions - totalCorrect
         val percentage = (totalCorrect * 100) / totalQuestions
 
-        // Configura los textos e imágenes
         resultText.text = if (percentage >= 80) "¡Excelente!" else "Buen intento"
         resultPercentage.text = "$percentage%"
         rightQuestions.text = "Preguntas correctas: $totalCorrect"
@@ -53,3 +49,4 @@ class ResultFragment : Fragment() {
         return view
     }
 }
+
