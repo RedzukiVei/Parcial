@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.parcial.Question
@@ -46,6 +47,8 @@ class QuestionFragment : Fragment() {
         val timerText = view.findViewById<TextView>(R.id.timerText)
         val questionNumberText = view.findViewById<TextView>(R.id.questionNumber)
 
+        (activity as AppCompatActivity).supportActionBar?.title = "Zona de Preguntas"
+
 
         // Cargar preguntas y mostrar la primera
         questions = loadQuestions()
@@ -71,6 +74,13 @@ class QuestionFragment : Fragment() {
     }
 
     private fun showQuestion(questionText: TextView, questionImageView: ImageView, timerText: TextView, questionNumberText: TextView) {
+        // Validar que el índice está dentro de los límites de la lista
+        if (currentQuestionIndex >= questions.size) {
+
+            findNavController().navigate(R.id.action_questionFragment_to_answerFragment)
+            return
+        }
+
         val currentQuestion = questions[currentQuestionIndex]
         questionText.text = currentQuestion.text
         questionImageView.setImageResource(currentQuestion.imageResId)
@@ -105,7 +115,13 @@ class QuestionFragment : Fragment() {
         }.start()
     }
 
-    private fun handleAnswer(selectedAnswer: String, questionText: TextView, progressBar: ProgressBar, progressText: TextView, timerText: TextView) {
+    private fun handleAnswer(
+        selectedAnswer: String,
+        questionText: TextView,
+        progressBar: ProgressBar,
+        progressText: TextView,
+        timerText: TextView
+    ) {
         val currentQuestion = questions[currentQuestionIndex]
         val isCorrect = currentQuestion.correctAnswer == selectedAnswer
 
@@ -116,22 +132,22 @@ class QuestionFragment : Fragment() {
         progressBar.progress = (currentQuestionIndex + 1) * (100 / maxQuestions)
         progressText.text = "Progreso: ${currentQuestionIndex + 1} de $maxQuestions"
 
-        // Navega al fragmento de respuesta con la información necesaria
+        // Crear un Bundle para enviar al AnswerFragment con los datos de la respuesta
         val bundle = Bundle().apply {
             putBoolean("isCorrect", isCorrect)
             putString("feedback", currentQuestion.feedback)
-            putInt("questionImageResId", currentQuestion.imageResId)
-            putInt("answerImageResId", currentQuestion.imageAnsId)
+            putInt("answerImageResId", currentQuestion.imageAnsId) // Imagen de la respuesta
+            val hasMoreQuestions = currentQuestionIndex + 1 < maxQuestions
+            putBoolean("hasMoreQuestions", hasMoreQuestions)
         }
-        findNavController().navigate(R.id.action_questionFragment_to_answerFragment, bundle)
+
+        // Solo navega al AnswerFragment si actualmente estamos en el QuestionFragment
+        if (findNavController().currentDestination?.id == R.id.questionFragment) {
+            findNavController().navigate(R.id.action_questionFragment_to_answerFragment, bundle)
+        }
 
         // Avanzar a la siguiente pregunta o finalizar el juego
         currentQuestionIndex++
-        if (currentQuestionIndex < maxQuestions) {
-            showQuestion(questionText, view?.findViewById(R.id.questionImageView)!!, timerText, view?.findViewById(R.id.questionNumber)!!)
-        } else {
-            findNavController().navigate(R.id.action_questionFragment_to_resultFragment)
-        }
     }
 
     private fun loadQuestions(): List<Question> {

@@ -27,11 +27,6 @@
         <action
             android:id="@+id/action_questionFragment_to_answerFragment"
             app:destination="@id/answerFragment" />
-
-        <!-- Acción para navegar a ResultFragment -->
-        <action
-            android:id="@+id/action_questionFragment_to_resultFragment"
-            app:destination="@id/resultFragment" />
     </fragment>
 
     <!-- Answer Fragment -->

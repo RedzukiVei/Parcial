@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 
@@ -24,6 +25,9 @@ class ResultFragment : Fragment() {
         val rightQuestions = view.findViewById<TextView>(R.id.rightQuestions)
         val retryButton = view.findViewById<Button>(R.id.retryButton)
         val chooseCategoryButton = view.findViewById<Button>(R.id.chooseCategoryButton)
+
+        (activity as AppCompatActivity).supportActionBar?.title = "Resultados Finales"
+
 
         // Obtener los argumentos pasados (número de preguntas correctas, incorrectas, etc.)
         val totalCorrect = arguments?.getInt("correctAnswers") ?: 0
