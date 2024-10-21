@@ -14,15 +14,20 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="16dp"
         android:textColor="@color/white"
-        android:layout_gravity="right"
+        android:layout_gravity="end"
         android:text="Tiempo: 15" />
+
+    <!-- Número de la pregunta (posicionado encima de la imagen) -->
     <TextView
         android:id="@+id/questionNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
+        android:layout_marginTop="16dp"
         android:layout_gravity="center"
+        android:text="Pregunta 1"
         android:textColor="@color/white"/>
+
 
     <ImageView
         android:id="@+id/questionImageView"
@@ -50,25 +55,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_columnWeight="1"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/option2Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/option3Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            android:textColor="@color/black"/>
 
         <Button
             android:id="@+id/option4Button"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1" />
+            android:layout_columnWeight="1"
+            android:textColor="@color/black"/>
     </GridLayout>
 
     <ProgressBar
