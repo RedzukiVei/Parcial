@@ -1,9 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph.xml">
-    <action
-        android:id="@+id/action_answerFragment_to_questionFragment"
-        app:destination="@id/action_answerFragment_to_questionFragment" />
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/welcomeFragment">
+
+    <!-- Welcome Fragment -->
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.parcial.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+
+    <!-- Question Fragment -->
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.example.parcial.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question">
+
+        <!-- Acción para navegar a AnswerFragment -->
+        <action
+            android:id="@+id/action_questionFragment_to_answerFragment"
+            app:destination="@id/answerFragment" />
+
+        <!-- Acción para navegar a ResultFragment -->
+        <action
+            android:id="@+id/action_questionFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
+    <!-- Answer Fragment -->
+    <fragment
+        android:id="@+id/answerFragment"
+        android:name="com.example.parcial.AnswerFragment"
+        android:label="fragment_answer"
+        tools:layout="@layout/fragment_answer">
+        <action
+            android:id="@+id/action_answerFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+        <action
+            android:id="@+id/action_answerFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+
+    <!-- Result Fragment -->
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.parcial.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+
+        <!-- Acción para navegar de vuelta a QuestionFragment -->
+        <action
+            android:id="@+id/action_resultFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
 
 </navigation>
