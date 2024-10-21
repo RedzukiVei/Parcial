@@ -127,49 +127,49 @@ class QuestionFragment : Fragment() {
                 options = listOf("Link", "Zelda", "Ganondorf", "Epona"),
                 correctAnswer = "Link",
                 feedback = "Link es el protagonista de la mayoría de los juegos de The Legend of Zelda. Aunque el título del juego lleva el nombre de la princesa Zelda, el jugador toma el rol de Link, un héroe que debe salvar Hyrule de las fuerzas del mal.",
-                imageResId = R.drawable.image_link
+                imageResId = R.drawable.p1
             ),
             Question(
                 text = "¿En qué videojuego aparece el personaje de Mario por primera vez?",
                 options = listOf("Super Mario Bros.", "Donkey Kong", "Mario Kart", "Mario Party"),
                 correctAnswer = "Donkey Kong",
                 feedback = "Mario apareció por primera vez en Donkey Kong en 1981 como 'Jumpman'. Este arcade fue diseñado por Shigeru Miyamoto, y marcó el inicio de la carrera de Mario como una de las figuras más icónicas en la historia de los videojuegos.",
-                imageResId = R.drawable.image_donkey_kong
+                imageResId = R.drawable.p2
             ),
             Question(
                 text = "¿Cuál es el nombre del hermano de Mario en los videojuegos?",
                 options = listOf("Luigi", "Bowser", "Yoshi", "Wario"),
                 correctAnswer = "Luigi",
                 feedback = "Luigi es el hermano de Mario, conocido por ser más alto y tímido. Luigi hizo su debut en el juego arcade Mario Bros. en 1983, y aunque empezó como un personaje secundario, ha protagonizado varios juegos como Luigi's Mansion.",
-                imageResId = R.drawable.image_luigi
+                imageResId = R.drawable.p3
             ),
             Question(
                 text = "¿Qué color es el personaje Sonic the Hedgehog?",
                 options = listOf("Azul", "Rojo", "Verde", "Amarillo"),
                 correctAnswer = "Azul",
                 feedback = "Sonic, el veloz erizo azul, fue creado por SEGA para competir con Mario de Nintendo. Su primera aparición fue en 1991 en Sonic the Hedgehog para la consola Sega Genesis, y rápidamente se convirtió en la mascota de la compañía.",
-                imageResId = R.drawable.image_sonic
+                imageResId = R.drawable.p4
             ),
             Question(
                 text = "¿En qué videojuego debes comer puntos y evitar fantasmas?",
                 options = listOf("Pac-Man", "Space Invaders", "Pong", "Tetris"),
                 correctAnswer = "Pac-Man",
                 feedback = "Pac-Man, lanzado en 1980, es uno de los videojuegos más influyentes y reconocibles de todos los tiempos. Fue creado por Toru Iwatani para Namco y se convirtió en un ícono cultural de los años 80.",
-                imageResId = R.drawable.image_pacman
+                imageResId = R.drawable.p5
             ),
             Question(
-                text = "¿Cómo se llama el videojuego donde puedes capturar criaturas conocidas como Pokémon?",
+                text = "¿Cómo se llama el videojuego, el cuál su protagonista se llama Red?",
                 options = listOf("Digimon", "Pokémon", "Yu-Gi-Oh!", "Monster Hunter"),
                 correctAnswer = "Pokémon",
                 feedback = "Pokémon fue lanzado en 1996 por Nintendo, Game Freak, y Creatures. En el juego, los jugadores toman el rol de entrenadores Pokémon que deben capturar y entrenar criaturas para luchar. La franquicia sigue siendo una de las más grandes en la industria de los videojuegos.",
-                imageResId = R.drawable.image_pokemon
+                imageResId = R.drawable.p6
             ),
             Question(
                 text = "¿Cuál de estos juegos es un simulador de fútbol?",
                 options = listOf("FIFA", "Call of Duty", "League of Legends", "Fortnite"),
                 correctAnswer = "FIFA",
                 feedback = "La serie FIFA, desarrollada por EA Sports, es el simulador de fútbol más popular del mundo. El primer juego de la serie fue lanzado en 1993 y sigue siendo un pilar en el género deportivo.",
-                imageResId = R.drawable.image_fifa
+                imageResId = R.drawable.p7
             ),
 
             // Preguntas Intermedias
@@ -178,49 +178,49 @@ class QuestionFragment : Fragment() {
                 options = listOf("2009", "2011", "2013", "2015"),
                 correctAnswer = "2011",
                 feedback = "Minecraft fue lanzado oficialmente en 2011 después de una versión beta en 2009. Desarrollado por Mojang y creado por Markus 'Notch' Persson, Minecraft es uno de los juegos más vendidos de la historia, conocido por su estilo gráfico de bloques y libertad creativa.",
-                imageResId = R.drawable.image_minecraft
+                imageResId = R.drawable.p8
             ),
             Question(
                 text = "¿Cómo se llama el personaje principal de la serie de videojuegos Halo?",
                 options = listOf("Master Chief", "Cortana", "Arbiter", "Sergeant Johnson"),
                 correctAnswer = "Master Chief",
                 feedback = "Master Chief, también conocido como John-117, es el protagonista de la serie de juegos Halo de Microsoft. Su primera aparición fue en Halo: Combat Evolved en 2001, un juego que redefinió los shooters en primera persona.",
-                imageResId = R.drawable.image_master_chief
+                imageResId = R.drawable.p9
             ),
             Question(
                 text = "¿En qué videojuego utilizas una herramienta llamada 'Gravity Gun'?",
                 options = listOf("Half-Life 2", "Portal", "Bioshock", "Doom"),
                 correctAnswer = "Half-Life 2",
                 feedback = "La Gravity Gun, una de las herramientas más icónicas de Half-Life 2, permite manipular objetos a distancia. Este juego, lanzado en 2004, fue desarrollado por Valve y es considerado uno de los mejores videojuegos de todos los tiempos.",
-                imageResId = R.drawable.image_half_life
+                imageResId = R.drawable.p10
             ),
             Question(
-                text = "¿En qué juego de disparos se encuentra el modo 'Battle Royale'?",
+                text = "¿Qué juego popularizo el modo de juego 'Battle Royale'?",
                 options = listOf("Fortnite", "Overwatch", "Apex Legends", "PUBG"),
                 correctAnswer = "Fortnite",
                 feedback = "Fortnite, desarrollado por Epic Games, se lanzó en 2017 y popularizó el modo Battle Royale. Aunque no fue el primer juego de este tipo, su éxito masivo lo convirtió en un fenómeno cultural.",
-                imageResId = R.drawable.image_fortnite
+                imageResId = R.drawable.p11
             ),
             Question(
                 text = "¿Cómo se llama el villano principal en la serie de videojuegos Final Fantasy VII?",
                 options = listOf("Sephiroth", "Kefka", "Ultimecia", "Sin"),
                 correctAnswer = "Sephiroth",
                 feedback = "Sephiroth es el antagonista principal de Final Fantasy VII, uno de los RPG más aclamados de todos los tiempos. Con su icónica espada Masamune, es uno de los villanos más memorables en la historia de los videojuegos.",
-                imageResId = R.drawable.image_sephiroth
+                imageResId = R.drawable.p12
             ),
             Question(
                 text = "¿Qué empresa desarrolló el videojuego Overwatch?",
                 options = listOf("Blizzard", "Valve", "Ubisoft", "EA"),
                 correctAnswer = "Blizzard",
                 feedback = "Overwatch fue desarrollado por Blizzard Entertainment y lanzado en 2016. El juego es un shooter en primera persona por equipos que ha ganado numerosos premios por su diseño y jugabilidad.",
-                imageResId = R.drawable.image_blizzard
+                imageResId = R.drawable.p13
             ),
             Question(
                 text = "¿En qué juego se encuentra la ciudad ficticia de Los Santos?",
                 options = listOf("GTA V", "Red Dead Redemption", "Mafia", "Watch Dogs"),
                 correctAnswer = "GTA V",
                 feedback = "Los Santos es la ciudad ficticia inspirada en Los Ángeles y es el escenario principal de Grand Theft Auto V. Este juego, lanzado en 2013, ha sido uno de los más vendidos de la historia.",
-                imageResId = R.drawable.image_gta_v
+                imageResId = R.drawable.p14
             ),
 
             // Preguntas Difíciles
@@ -229,42 +229,42 @@ class QuestionFragment : Fragment() {
                 options = listOf("Atari 2600", "NES", "Sega Genesis", "Magnavox Odyssey"),
                 correctAnswer = "Atari 2600",
                 feedback = "La Atari 2600, lanzada en 1977, fue la primera consola en popularizar los cartuchos intercambiables, lo que permitió a los jugadores comprar diferentes juegos para una sola máquina.",
-                imageResId = R.drawable.image_atari
+                imageResId = R.drawable.p15
             ),
             Question(
-                text = "¿Cuál es el nombre completo de Solid Snake en la serie Metal Gear?",
+                text = "¿Cuál es el nombre de Solid Snake en la serie Metal Gear?",
                 options = listOf("David", "John", "Jack", "Sam"),
                 correctAnswer = "David",
                 feedback = "Solid Snake, cuyo verdadero nombre es David, es el protagonista de la serie Metal Gear, creada por Hideo Kojima. La franquicia es conocida por su enfoque en el sigilo y su narrativa compleja.",
-                imageResId = R.drawable.image_solid_snake
+                imageResId = R.drawable.p16
             ),
             Question(
                 text = "¿Cuál fue el primer videojuego en incluir un 'modo Nueva Partida+'?",
                 options = listOf("Chrono Trigger", "Final Fantasy", "The Legend of Zelda", "Metroid"),
                 correctAnswer = "Chrono Trigger",
                 feedback = "Chrono Trigger, lanzado en 1995, fue uno de los primeros juegos en incluir el modo 'Nueva Partida+', permitiendo a los jugadores volver a jugar con todos los objetos y habilidades obtenidas.",
-                imageResId = R.drawable.image_chrono_trigger
+                imageResId = R.drawable.p17
             ),
             Question(
                 text = "¿En qué videojuego de la serie Zelda aparece por primera vez Sheik?",
                 options = listOf("Ocarina of Time", "Majora's Mask", "Twilight Princess", "Wind Waker"),
                 correctAnswer = "Ocarina of Time",
                 feedback = "Sheik aparece por primera vez en The Legend of Zelda: Ocarina of Time. Aunque parece ser un nuevo personaje, Sheik es en realidad la princesa Zelda disfrazada.",
-                imageResId = R.drawable.image_zelda_sheik
+                imageResId = R.drawable.p18
             ),
             Question(
                 text = "¿Cuál es el nombre del director de la serie de videojuegos Metal Gear?",
                 options = listOf("Hideo Kojima", "Shigeru Miyamoto", "Yoko Taro", "Fumito Ueda"),
                 correctAnswer = "Hideo Kojima",
                 feedback = "Hideo Kojima es un aclamado director y diseñador de videojuegos, conocido por su trabajo en la serie Metal Gear. Es considerado uno de los autores más influyentes de la industria.",
-                imageResId = R.drawable.image_kojima
+                imageResId = R.drawable.p19
             ),
             Question(
                 text = "¿Qué juego de rol (RPG) popularizó el uso del término 'grinding'?",
                 options = listOf("Final Fantasy", "Dragon Quest", "Diablo", "World of Warcraft"),
                 correctAnswer = "Diablo",
                 feedback = "'Grinding' se refiere a la repetición de actividades en un videojuego para mejorar las habilidades del personaje o obtener objetos. Diablo, lanzado por Blizzard en 1996, popularizó este término en los RPG.",
-                imageResId = R.drawable.image_diablo
+                imageResId = R.drawable.p20
             )
         )
     }
