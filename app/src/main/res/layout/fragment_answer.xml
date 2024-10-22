@@ -7,10 +7,20 @@
     android:background="@drawable/fondo2"
     android:gravity="center_horizontal">
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="45dp"
+        android:textColor="@color/white"
+        android:layout_gravity="end"
+        android:text="Easter Egg" />
+    <TextView
         android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textColor="@color/white"
         android:layout_marginBottom="16dp"
         android:gravity="center" />
@@ -18,16 +28,16 @@
         android:id="@+id/feedbackText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:textColor="@color/white"
         android:layout_gravity="center"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="10dp"/>
+
     <ImageView
         android:id="@+id/answerImage"
         android:layout_width="247dp"
         android:layout_height="271dp"
-        android:layout_marginTop="16dp"
         android:layout_gravity="center"
-        />
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>

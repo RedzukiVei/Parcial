@@ -72,7 +72,7 @@ class QuestionFragment : Fragment() {
     private fun showQuestion(
         questionText: TextView, questionImageView: ImageView, timerText: TextView, questionNumberText: TextView
     ) {
-        if (currentQuestionIndex >= totalQuestions) {
+        if (currentQuestionIndex == totalQuestions) {
             // Si llegamos al límite de preguntas, navegar a ResultFragment
             findNavController().navigate(R.id.action_answerFragment_to_resultFragment)
             return

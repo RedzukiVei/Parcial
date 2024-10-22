@@ -16,6 +16,22 @@
             app:destination="@id/questionFragment" />
     </fragment>
 
+    <!-- Result Fragment -->
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.parcial.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+
+        <!-- Acción para navegar de vuelta a QuestionFragment -->
+        <action
+            android:id="@+id/action_resultFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+
     <!-- Question Fragment -->
     <fragment
         android:id="@+id/questionFragment"
@@ -43,20 +59,6 @@
             app:destination="@id/resultFragment" />
     </fragment>
 
-    <!-- Result Fragment -->
-    <fragment
-        android:id="@+id/resultFragment"
-        android:name="com.example.parcial.ResultFragment"
-        android:label="fragment_result"
-        tools:layout="@layout/fragment_result">
-        <action
-            android:id="@+id/action_resultFragment_to_welcomeFragment"
-            app:destination="@id/welcomeFragment" />
 
-        <!-- Acción para navegar de vuelta a QuestionFragment -->
-        <action
-            android:id="@+id/action_resultFragment_to_questionFragment"
-            app:destination="@id/questionFragment" />
-    </fragment>
 
 </navigation>

@@ -27,7 +27,7 @@ class AnswerFragment : Fragment() {
         val isCorrect = arguments?.getBoolean("isCorrect") ?: false
         val feedback = arguments?.getString("feedback") ?: ""
         val answerImageResId = arguments?.getInt("answerImageResId") ?: R.drawable.default_image
-        val hasMoreQuestions = arguments?.getBoolean("hasMoreQuestions") ?: true
+        val hasMoreQuestions = arguments?.getBoolean("hasMoreQuestions") ?: false
 
         (activity as AppCompatActivity).supportActionBar?.title = "Zona de Respuestas"
 
